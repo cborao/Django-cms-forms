@@ -1,0 +1,28 @@
+
+{% if rootpage %}
+    You are in the root page.
+{% else %}
+    Key {{ content.key }} value is: {{ content.value }}. Topics are:
+    {% for topic in content.topic.all %}
+        {{ topic }}
+    {% endfor %}
+    <br>
+{% endif %}
+
+{% for comment in content.comment_set.all %}
+    <p><b>Title</b>: {{ comment.title }}
+        <br><b>Body</b>: {{ comment.body }}
+        <br><b>Date</b>: {{ comment.date }}
+    </p>
+
+{% endfor %}
+
+{% if request.user.is_authenticated %}
+
+{{ form }}
+
+{% else %}
+    There is no value for this key
+    Not logged in. <a href='/login'>Login</a>
+{% endif %}
+

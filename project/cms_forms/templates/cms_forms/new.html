@@ -1,0 +1,14 @@
+{% if request.user.is_authenticated %}
+
+    <p>Logged as {{ request.user.username }}.</p>
+    <p>There is no content for this key, you can add it:</p>
+
+    <form action="" method="POST">
+        Value: <input type="text" name="value">
+        <br/><input type="submit" name="action" value="Send Content">
+    </form>
+
+{% else %}
+
+    You cannot add content: not logged in. <a href='/login'>Login</a>
+{% endif %}

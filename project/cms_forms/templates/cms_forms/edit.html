@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if is_content %}
+    <h2>Add content</h2>
+{% else %}
+    <h2>Add comment</h2>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+<table>
+    {{ form }}
+
+</table>
+<button type=""submit>Save!!</button>
+</form>
+</body>
+</html>
